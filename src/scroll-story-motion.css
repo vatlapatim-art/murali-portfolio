@@ -1,0 +1,190 @@
+/* Clean editorial hero + cinematic scroll pacing.
+   The 3D network preview has intentionally been removed from the opening section.
+   The project artwork and its original entrance/hover animations remain unchanged. */
+
+.hero-section {
+  display: block !important;
+  min-height: min(850px, calc(100svh - 64px));
+  padding: clamp(112px, 12vw, 168px) clamp(24px, 7.2vw, 116px) 100px !important;
+  overflow: hidden;
+}
+.hero-section::before {
+  width: min(760px, 66vw) !important;
+  height: min(760px, 66vw) !important;
+  top: -7% !important;
+  right: -2% !important;
+  opacity: .72 !important;
+  background: radial-gradient(circle at 48% 52%, rgba(241,226,218,.9), rgba(231,238,241,.32) 44%, rgba(247,245,241,0) 72%) !important;
+  filter: blur(18px) !important;
+}
+.hero-section::after {
+  opacity: .13 !important;
+  background-size: 25px 25px !important;
+  mask-image: linear-gradient(90deg, transparent 0%, #000 30%, #000 78%, transparent 100%) !important;
+}
+.hero-backdrop-mark {
+  right: 5% !important;
+  bottom: 1% !important;
+  color: rgba(37,35,33,.035) !important;
+  font-size: clamp(240px, 37vw, 560px) !important;
+}
+.hero-content {
+  width: min(100%, 1260px);
+  max-width: 1260px !important;
+  margin: 0 auto;
+  padding-bottom: 28px !important;
+  position: relative;
+  z-index: 2;
+}
+.hero-meta {
+  margin-bottom: clamp(28px, 4vw, 48px) !important;
+  gap: 20px !important;
+}
+.hero-section h1 {
+  max-width: 1200px;
+  font-size: clamp(76px, 11.4vw, 164px) !important;
+  line-height: .86 !important;
+  letter-spacing: -.095em !important;
+  text-wrap: balance;
+}
+.hero-section h1 .hero-serif {
+  letter-spacing: -.105em !important;
+}
+.hero-bottomline {
+  max-width: 1100px !important;
+  grid-template-columns: minmax(280px, 560px) minmax(240px, 1fr) !important;
+  align-items: end !important;
+  gap: clamp(30px, 7vw, 112px) !important;
+  margin-top: clamp(32px, 4.2vw, 58px) !important;
+}
+.hero-bottomline > p {
+  max-width: 560px !important;
+  font-size: clamp(14px, 1.18vw, 16px) !important;
+  line-height: 1.9 !important;
+}
+.hero-actions {
+  align-items: center;
+  gap: 12px !important;
+}
+.hero-social-strip {
+  max-width: 1100px;
+  margin-top: clamp(44px, 5.4vw, 74px) !important;
+}
+.hero-bottom-note {
+  bottom: 24px !important;
+  left: clamp(24px, 7.2vw, 116px) !important;
+}
+.desktop-discovery-hint {
+  right: clamp(24px, 7.2vw, 116px) !important;
+  bottom: 15px !important;
+}
+
+/* Scroll rhythm: generous reveal distance, soft focus and deliberate easing. */
+.content-section,
+.approach-band,
+.contact-section {
+  scroll-margin-top: 86px;
+}
+.reference-shell .section-topline,
+.reference-shell .about-statement,
+.reference-shell .about-story,
+.reference-shell .stat-ribbon,
+.reference-shell .section-intro-row,
+.reference-shell .projects-heading-row,
+.reference-shell .project-filter-row,
+.reference-shell .project-endnote,
+.reference-shell .approach-band-inner,
+.reference-shell .journey-heading,
+.reference-shell .contact-content,
+.reference-shell .contact-topline,
+.reference-shell .contact-bottom {
+  transform-origin: 50% 70%;
+  backface-visibility: hidden;
+}
+.reference-shell .section-topline {
+  transition: border-color .5s ease;
+}
+.reference-shell .about-statement h2,
+.reference-shell .section-intro-row h2,
+.reference-shell .projects-heading-row h2,
+.reference-shell .journey-heading h2,
+.reference-shell .contact-content h2 {
+  text-wrap: balance;
+}
+.reference-shell .about-story p,
+.reference-shell .section-intro-row > p,
+.reference-shell .projects-heading-row p,
+.reference-shell .journey-heading > p,
+.reference-shell .contact-content > p {
+  text-wrap: pretty;
+}
+.reference-shell .hero-bottom-note svg {
+  animation: heroScrollNudge 1.7s cubic-bezier(.4,0,.2,1) infinite;
+}
+@keyframes heroScrollNudge {
+  0%, 100% { transform: translateY(0); opacity: .7; }
+  50% { transform: translateY(6px); opacity: 1; }
+}
+
+/* Preserve the existing project card choreography; only tune overall scroll smoothness. */
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+  .reference-shell .project-art-button {
+    transition: transform .42s cubic-bezier(.16,1,.3,1), filter .42s ease;
+  }
+  .reference-shell .project-showcase-info {
+    transition: transform .42s cubic-bezier(.16,1,.3,1);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reference-shell .hero-bottom-note svg { animation: none !important; }
+}
+
+@media (max-width: 980px) {
+  .hero-section {
+    min-height: auto !important;
+    padding-top: 112px !important;
+    padding-bottom: 112px !important;
+  }
+  .hero-section h1 { font-size: clamp(68px, 11.2vw, 112px) !important; }
+  .hero-bottomline {
+    grid-template-columns: 1fr !important;
+    gap: 22px !important;
+  }
+}
+@media (max-width: 700px) {
+  .hero-section {
+    min-height: auto !important;
+    padding: 78px 24px 112px !important;
+  }
+  .hero-section::before {
+    width: 420px !important;
+    height: 420px !important;
+    right: -42% !important;
+    top: 15% !important;
+  }
+  .hero-section h1 {
+    font-size: clamp(52px, 13.5vw, 84px) !important;
+    line-height: .91 !important;
+  }
+  .hero-bottomline {
+    margin-top: 28px !important;
+  }
+  .hero-actions {
+    flex-wrap: wrap;
+  }
+  .hero-social-strip {
+    margin-top: 36px !important;
+  }
+  .hero-bottom-note {
+    left: 24px !important;
+    bottom: 22px !important;
+  }
+  .desktop-discovery-hint {
+    left: 24px !important;
+    right: 24px !important;
+    bottom: 56px !important;
+    width: auto !important;
+  }
+}

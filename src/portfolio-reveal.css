@@ -1,0 +1,159 @@
+/* The initial 3D intro now hands off to the portfolio as one continuous reveal. */
+.reference-shell.portfolio-intro-locked > .topbar,
+.reference-shell.portfolio-intro-locked > .chapter-rail,
+.reference-shell.portfolio-intro-locked > .scroll-progress,
+.reference-shell.portfolio-intro-locked > main,
+.reference-shell.portfolio-intro-locked > .site-footer {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+.reference-shell.portfolio-reveal-active > .topbar {
+  visibility: visible;
+  animation: portfolio-nav-arrive .92s cubic-bezier(.16,1,.3,1) both;
+}
+.reference-shell.portfolio-reveal-active > .chapter-rail {
+  visibility: visible;
+  animation: portfolio-rail-arrive 1s .22s cubic-bezier(.16,1,.3,1) both;
+}
+.reference-shell.portfolio-reveal-active > .scroll-progress {
+  visibility: visible;
+  animation: portfolio-fade-in .8s .24s ease-out both;
+}
+.reference-shell.portfolio-reveal-active > main {
+  visibility: visible;
+  transform-origin: 50% 42%;
+  animation: portfolio-world-arrive 1.36s cubic-bezier(.16,1,.3,1) both;
+}
+.reference-shell.portfolio-reveal-active > main > .hero-section::after {
+  content: '';
+  position: absolute;
+  z-index: 8;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(108deg, transparent 25%, rgba(255,255,255,.52) 48%, rgba(232,196,179,.19) 52%, transparent 68%);
+  transform: translateX(-120%);
+  animation: portfolio-hero-sheen 1.65s .18s cubic-bezier(.22,1,.36,1) both;
+}
+.reference-shell.portfolio-reveal-active > .site-footer {
+  visibility: visible;
+  animation: portfolio-fade-in .8s .45s ease-out both;
+}
+
+.portfolio-intro-3d.is-closing .intro3d-copy,
+.portfolio-intro-3d.is-closing .intro3d-status-panel,
+.portfolio-intro-3d.is-closing .intro3d-topbar,
+.portfolio-intro-3d.is-closing .intro3d-footer,
+.portfolio-intro-3d.is-closing .intro3d-callout,
+.portfolio-intro-3d.is-closing .intro3d-stage-label,
+.portfolio-intro-3d.is-closing .intro3d-axis-label {
+  opacity: 0;
+  filter: blur(9px);
+  transition: opacity .42s ease, filter .52s ease;
+}
+.portfolio-intro-3d.is-closing .intro3d-stage {
+  transform: scale(1.12);
+  filter: saturate(1.2) brightness(1.08);
+  transition: transform .72s cubic-bezier(.16,1,.3,1), filter .72s ease;
+}
+.portfolio-intro-3d.is-closing .intro3d-ambient-one {
+  transform: scale(1.7);
+  opacity: .4;
+  transition: transform .72s ease, opacity .72s ease;
+}
+
+.homepage-reveal-sweep {
+  position: fixed;
+  z-index: 11000;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  pointer-events: none;
+  color: #302923;
+  background: #f7f4f0;
+  isolation: isolate;
+}
+.homepage-reveal-sweep::before {
+  content: '';
+  position: absolute;
+  left: -30%;
+  top: 0;
+  width: 34%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.92), rgba(232,196,179,.36), transparent);
+  filter: blur(22px);
+  transform: skewX(-14deg);
+  animation: homepage-light-pass 1.4s .06s cubic-bezier(.2,.7,.2,1) both;
+}
+.homepage-reveal-caption {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #8a6556;
+  font: 700 9px 'IBM Plex Mono', monospace;
+  letter-spacing: .2em;
+  animation: homepage-caption-exit .8s .38s ease both;
+}
+.homepage-reveal-caption i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #b96f5b;
+  box-shadow: 0 0 0 5px rgba(185,111,91,.13), 0 0 18px rgba(185,111,91,.22);
+}
+
+@keyframes portfolio-nav-arrive {
+  from { opacity: 0; transform: translateY(-24px); filter: blur(8px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+@keyframes portfolio-rail-arrive {
+  from { opacity: 0; transform: translateX(18px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes portfolio-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes portfolio-world-arrive {
+  0% { opacity: 0; transform: translateY(34px) scale(.982); filter: blur(13px); }
+  58% { opacity: 1; filter: blur(0); }
+  100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+@keyframes portfolio-hero-sheen {
+  0% { transform: translateX(-120%); opacity: 0; }
+  18% { opacity: .9; }
+  100% { transform: translateX(120%); opacity: 0; }
+}
+@keyframes homepage-light-pass {
+  0% { left: -36%; opacity: 0; }
+  18% { opacity: .9; }
+  100% { left: 112%; opacity: 0; }
+}
+@keyframes homepage-caption-exit {
+  0% { opacity: 0; transform: translateY(12px); letter-spacing: .32em; }
+  35% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-9px); }
+}
+
+@media (max-width: 700px) {
+  .homepage-reveal-sweep::before { width: 58%; }
+  .homepage-reveal-caption { font-size: 7px; letter-spacing: .13em; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reference-shell.portfolio-reveal-active > .topbar,
+  .reference-shell.portfolio-reveal-active > .chapter-rail,
+  .reference-shell.portfolio-reveal-active > .scroll-progress,
+  .reference-shell.portfolio-reveal-active > main,
+  .reference-shell.portfolio-reveal-active > .site-footer,
+  .homepage-reveal-sweep::before,
+  .homepage-reveal-caption {
+    animation-duration: .01ms !important;
+    animation-delay: 0ms !important;
+  }
+}
+
+/* The camera completes its atmospheric pass before the page-level reveal starts. */

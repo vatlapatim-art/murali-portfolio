@@ -1,0 +1,186 @@
+/* High-contrast corrections requested from the browser review screenshots. */
+.work-word { color: #292522 !important; }
+.work-word > span:not(.work-gateway-letter) {
+  color: #292522 !important;
+  opacity: 1 !important;
+  -webkit-text-fill-color: #292522 !important;
+  text-shadow: 0 2px 0 rgba(255,255,255,.14);
+}
+.work-gateway-letter {
+  color: #b96f5b !important;
+  -webkit-text-fill-color: #b96f5b !important;
+  background: transparent !important;
+  text-shadow: 0 0 20px rgba(185,111,91,.13) !important;
+}
+.work-gateway-letter:hover,
+.work-gateway-letter:focus-visible {
+  color: #fffaf6 !important;
+  -webkit-text-fill-color: #fffaf6 !important;
+  background: #b96f5b !important;
+}
+.work-gateway-letter > span { color: inherit !important; -webkit-text-fill-color: inherit !important; opacity: 1 !important; }
+.work-gateway-letter::before { border-color: rgba(185,111,91,.58) !important; }
+.work-gateway-letter > i { color: #fffaf6 !important; background: #a96552 !important; }
+.work-portal-copy > p { color: #514943 !important; }
+.work-portal-hint { color: #635a53 !important; }
+
+/* Preserve the dark teal ribbon, but restore readable ivory figures and labels. */
+.stat-ribbon b {
+  color: #fff7f0 !important;
+  text-shadow: 0 1px 14px rgba(255,239,226,.12);
+}
+.stat-ribbon span {
+  color: #ecd7ca !important;
+  font-size: 8px !important;
+  font-weight: 600 !important;
+  line-height: 1.5 !important;
+  letter-spacing: .1em !important;
+}
+.stat-ribbon > div { border-color: rgba(255,244,236,.2) !important; }
+
+/* CycloneShield becomes one integrated case-study canvas, not a 3D tile beside a detached white text tile. */
+.project-showcase-0 {
+  position: relative !important;
+  display: block !important;
+  min-height: 465px;
+  overflow: hidden;
+  isolation: isolate;
+  background: #10363d !important;
+  border-color: rgba(37,35,33,.12) !important;
+}
+.project-showcase-0 .project-art-button {
+  position: absolute !important;
+  z-index: 0;
+  inset: 0;
+  width: 100%;
+  height: 100% !important;
+  min-height: 100% !important;
+  background: transparent !important;
+}
+.project-showcase-0 .project-art-button::after {
+  opacity: 1 !important;
+  background: linear-gradient(90deg, rgba(7,35,41,.02) 0%, rgba(7,35,41,.06) 34%, rgba(8,35,40,.74) 56%, rgba(8,35,40,.97) 100%), linear-gradient(0deg, rgba(8,35,40,.2), transparent 58%) !important;
+}
+.project-showcase-0 .project-showcase-info {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: min(47%, 630px);
+  min-height: 465px;
+  margin-left: auto;
+  padding: clamp(28px,4.3vw,62px) clamp(26px,4vw,54px);
+  color: #fff9f4 !important;
+  background: transparent !important;
+  border-left: 1px solid rgba(247,226,213,.18);
+  pointer-events: none;
+}
+.project-showcase-0 .project-showcase-info > * { pointer-events: auto; }
+.project-showcase-0 .project-showcase-meta { color: #e3c6b8 !important; }
+.project-showcase-0 .project-showcase-meta span:first-child { color: #f0b59a !important; }
+.project-showcase-0 .project-showcase-meta span:last-child { color: #e5d8d0 !important; }
+.project-showcase-0 .project-title-button,
+.project-showcase-0 .project-title-button h3 { color: #fff9f4 !important; }
+.project-showcase-0 .project-title-button svg { color: #e8a98e !important; }
+.project-showcase-0 .project-showcase-info > p { color: #eee0d7 !important; font-size: 12px !important; line-height: 1.85 !important; }
+.project-showcase-0 .project-showcase-bottom { border-color: rgba(248,231,219,.24) !important; }
+.project-showcase-0 .project-techline span { color: #f3e8df !important; background: rgba(255,255,255,.12) !important; border: 1px solid rgba(255,255,255,.16); }
+.project-showcase-0 .project-links button,
+.project-showcase-0 .project-links a { color: #fff7f0 !important; border-color: rgba(255,247,240,.42) !important; background: rgba(255,255,255,.07) !important; }
+.project-showcase-0 .project-links button:hover,
+.project-showcase-0 .project-links a:hover { color: #2c2825 !important; background: #f3d4c4 !important; }
+.project-showcase-0 .art-open { display: none; }
+
+/* New cyclone visualization: map contours, storm eye, track and atmospheric radar. */
+.artwork-cyclone {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 49% 49%, rgba(91,180,174,.21), transparent 28%),
+    radial-gradient(ellipse at 18% 20%, rgba(110,164,165,.12), transparent 36%),
+    linear-gradient(135deg,#0d3038 0%,#123f48 50%,#092a34 100%) !important;
+}
+.cyclone-map-grid { position: absolute; inset: 0; opacity: .36; background-image: linear-gradient(rgba(184,220,213,.14) 1px,transparent 1px),linear-gradient(90deg,rgba(184,220,213,.12) 1px,transparent 1px); background-size: 48px 48px; transform: perspective(520px) rotateX(58deg) scale(1.45); transform-origin: 50% 65%; mask-image: linear-gradient(180deg,transparent,#000 18%,#000 78%,transparent); }
+.cyclone-map-svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.cyclone-coast { fill: rgba(133,174,151,.1); stroke: rgba(182,209,191,.36); stroke-width: 1.2; stroke-dasharray: 4 6; }
+.cyclone-contours { fill: none; stroke: rgba(151,205,193,.2); stroke-width: 1; }
+.cyclone-range { fill: none; stroke: rgba(162,207,198,.32); stroke-dasharray: 3 8; stroke-width: 1; }
+.cyclone-track { fill: none; stroke: #e3a48c; stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 7 7; filter: drop-shadow(0 0 5px rgba(227,164,140,.48)); }
+.cyclone-track-node { fill: #f4d9ca; stroke: #b96f5b; stroke-width: 3; }
+.cyclone-radar-ring { fill: none; stroke: rgba(152,207,197,.35); stroke-width: 1; }
+.cyclone-radar-ring.outer { stroke-dasharray: 5 8; }
+.cyclone-spiral { fill: none; stroke: url(#cycloneSpiralGradient); stroke-width: 9; stroke-linecap: round; filter: url(#cycloneGlow); opacity: .88; stroke-dasharray: 520; stroke-dashoffset: 0; animation: cyclone-drift 15s linear infinite; }
+.cyclone-eye { fill: url(#cycloneEyeGradient); stroke: rgba(242,211,190,.7); stroke-width: 1.4; filter: url(#cycloneGlow); }
+.cyclone-eye-core { fill: #f7e5d8; stroke: #d88f77; stroke-width: 4; }
+.cyclone-sweep { transform-origin: 394px 204px; animation: cyclone-sweep 8s linear infinite; }
+.cyclone-sweep path { fill: url(#cycloneSweepGradient); opacity: .35; }
+.cyclone-readout { position: absolute; z-index: 2; display: grid; gap: 5px; padding: 8px 10px; border: 1px solid rgba(210,230,219,.18); border-radius: 7px; color: #bed4cc; background: rgba(8,35,40,.56); backdrop-filter: blur(7px); font: 7px 'IBM Plex Mono',monospace; letter-spacing: .1em; }
+.cyclone-readout b { color: #f2c2a8; font-size: 10px; font-weight: 600; }
+.cyclone-readout small { color: #b1c7c0; font-size: 6px; }
+.cyclone-readout-a { top: 13%; left: 5%; }
+.cyclone-readout-b { right: 4%; bottom: 12%; }
+.cyclone-caption { position: absolute; z-index: 2; top: 7%; right: 5%; color: #c9ddd4; font: 7px 'IBM Plex Mono',monospace; letter-spacing: .14em; }
+.cyclone-caption strong { color: #e6a58b; }
+.cyclone-map-legend { position: absolute; z-index: 2; bottom: 6%; left: 5%; display: flex; flex-wrap: wrap; gap: 11px; color: #c4d5ce; font: 6px 'IBM Plex Mono',monospace; letter-spacing: .1em; }
+.cyclone-map-legend span { display: inline-flex; align-items: center; gap: 5px; }
+.cyclone-map-legend i { width: 6px; height: 6px; border-radius: 50%; background: #e6a58b; }
+.cyclone-map-legend span:nth-child(2) i { background: #8eb8c4; }
+.cyclone-map-legend span:nth-child(3) i { background: #9fcaab; }
+@keyframes cyclone-sweep { to { transform: rotate(360deg); } }
+@keyframes cyclone-drift { 0%,100% { stroke-dashoffset: 0; opacity: .8; } 50% { stroke-dashoffset: 140; opacity: 1; } }
+
+@media (max-width: 760px) {
+  .project-showcase-0 { min-height: 560px !important; }
+  .project-showcase-0 .project-showcase-info {
+    width: 100%;
+    min-height: 560px;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 28px 23px;
+    border-left: 0;
+    background: linear-gradient(0deg,rgba(8,35,40,.98) 0%,rgba(8,35,40,.85) 42%,rgba(8,35,40,.08) 100%) !important;
+  }
+  .project-showcase-0 .project-art-button::after { background: linear-gradient(0deg,rgba(8,35,40,.18),transparent 65%) !important; }
+  .project-showcase-0 .project-showcase-info > p { font-size: 11px !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cyclone-spiral,.cyclone-sweep { animation: none !important; }
+}
+
+/* Make the hidden-desktop interaction discoverable without competing with the WORK headline. */
+.work-portal-hint {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  max-width: 100%;
+  padding: 9px 14px !important;
+  border: 1px solid rgba(185,111,91,.27) !important;
+  border-radius: 999px !important;
+  color: #51453e !important;
+  background: rgba(255,250,246,.88) !important;
+  box-shadow: 0 7px 20px rgba(74,54,44,.07) !important;
+  font: 700 clamp(10px,.86vw,12px)/1.45 'IBM Plex Mono',monospace !important;
+  letter-spacing: .045em !important;
+  text-align: left;
+}
+.work-portal-hint i {
+  flex: 0 0 8px !important;
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 50%;
+  background: #b96f5b !important;
+  box-shadow: 0 0 0 4px rgba(185,111,91,.12), 0 0 12px rgba(185,111,91,.24) !important;
+}
+@media (max-width: 700px) {
+  .work-portal-hint {
+    padding: 8px 11px !important;
+    font-size: 9px !important;
+    letter-spacing: .025em !important;
+  }
+}
